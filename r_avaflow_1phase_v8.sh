@@ -20,16 +20,19 @@ FLOW_TYPE=2              # Hyperconcentrated - good starting point
 VOLUME_MULTIPLIER=1.0    # Multiply discharge to increase total volume
 
 # --------------------
-# INPUTS
+# INPUTS (relative to current directory)
 # --------------------
-DTM_COARSE="/home/kaushal/Desktop/Projects/Wilson_Creek_v2/DATA/dtm_5m.tif"
-DTM_FINE="/home/kaushal/Desktop/Projects/Wilson_Creek_v2/DATA/dtm_1m.tif"
-HYDROGRAPH_ORIGINAL="/home/kaushal/Desktop/Projects/Wilson_Creek_v2/DATA/hydrograph.txt"
-HYDROGRAPH_SCALED="/home/kaushal/Desktop/Projects/Wilson_Creek_v2/DATA/hydrograph_scaled.txt"
-HYDROCOORDS="320930.42,5541572.65,20,-9999"
-PROFILE="/home/kaushal/Desktop/Projects/Wilson_Creek_v2/DATA/profile.txt"
+BASE_DIR="$(pwd)"
+DATA_DIR="${BASE_DIR}/DATA"
 
-HMAX_ASC="/home/kaushal/Desktop/Projects/Wilson_Creek_v2/wc_1phase_coarse_results/wc_1phase_coarse_ascii/wc_1phase_coarse_hflow_max.asc"
+DTM_COARSE="${DATA_DIR}/dtm_5m.tif"
+DTM_FINE="${DATA_DIR}/dtm_1m.tif"
+HYDROGRAPH_ORIGINAL="${DATA_DIR}/hydrograph.txt"
+HYDROGRAPH_SCALED="${DATA_DIR}/hydrograph_scaled.txt"
+HYDROCOORDS="320930.42,5541572.65,20,-9999"
+PROFILE="${DATA_DIR}/profile.txt"
+
+HMAX_ASC="${BASE_DIR}/wc_1phase_coarse_results/wc_1phase_coarse_ascii/wc_1phase_coarse_hflow_max.asc"
 
 # --------------------
 # PARAMETERS
@@ -67,7 +70,7 @@ CSTOPPING=1
 #   10000 J = maximum kinetic energy cap
 #   1.0 = flow height ratio threshold
 #   0.000001 = minimum threshold for numerical stability
-THRESHOLDS="0.1,10000,10000,1.0,0.000001"
+THRESHOLDS="0.05,10000,10000,1.0,0.000001"
 
 # VISUALIZATION: "deform,hflowmin,hflowref,htsunref,hcontmin,hcontmax,hcontint,zcontmin,zcontmax,zcontint,pred,pgreen,pblue,pexp,phexagg,pvpath,rscriptpath,rlibspath"
 # Controls display/visualization settings (NOT output timing):
@@ -83,10 +86,10 @@ THRESHOLDS="0.1,10000,10000,1.0,0.000001"
 #   pvpath,rscriptpath,rlibspath: paths to external visualization tools
 
 # Coarse run: no external visualization outputs
-VISUALIZATION_COARSE="0,0.1,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,None,None,None"
+VISUALIZATION_COARSE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,None,None,None"
 
 # Fine run: enable ParaView and R visualization outputs
-VISUALIZATION_FINE="0,0.1,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,/usr/bin/pvpython,/usr/bin/Rscript,None"
+VISUALIZATION_FINE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,/usr/bin/pvpython,/usr/bin/Rscript,None"
 
 # =============================================================================
 # SET RHEOLOGY BY FLOW TYPE (RHEOLOGICAL PARAMETERS - DO NOT MODIFY LOGIC)
