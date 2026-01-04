@@ -89,7 +89,8 @@ THRESHOLDS="0.05,10000,10000,1.0,0.000001"
 VISUALIZATION_COARSE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,None,None,None"
 
 # Fine run: enable ParaView and R visualization outputs
-VISUALIZATION_FINE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,/usr/bin/pvpython,/usr/bin/Rscript,None"
+VISUALIZATION_FINE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,None,None,None"
+
 
 # =============================================================================
 # SET RHEOLOGY BY FLOW TYPE (RHEOLOGICAL PARAMETERS - DO NOT MODIFY LOGIC)

@@ -20,7 +20,7 @@ HYDROGRAPH="${DATA_DIR}/hydrograph_3phase.txt"
 HYDROCOORDS="320930.42,5541572.65,20,-9999"
 PROFILE="${DATA_DIR}/profile.txt"
 
-HMAX_ASC="${BASE_DIR}/wc_coarse_results/wc_coarse_ascii/wc_coarse_hflow_max.asc"
+HMAX_ASC="${BASE_DIR}/wc_3phase_coarse_results/wc_3phase_coarse_ascii/wc_3phase_coarse_hflow_max.asc"
 
 # --------------------
 # PARAMETERS
@@ -82,7 +82,7 @@ THRESHOLDS="0.05,10000,10000,1.0,0.000001"
 VISUALIZATION_COARSE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,None,None,None"
 
 # Fine run: enable ParaView and R visualization outputs
-VISUALIZATION_FINE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,/usr/bin/pvpython,/usr/bin/Rscript,None"
+VISUALIZATION_FINE="0,0.05,5.0,5.0,1,100,2,-11000,9000,100,0.60,0.25,0.15,0.2,1.0,None,None,None"
 
 # --------------------
 # 1) COARSE RUN
@@ -91,7 +91,7 @@ r.in.gdal -o --overwrite input="$DTM_COARSE" output=dtm_coarse
 g.region raster=dtm_coarse -a
 
 r.avaflow.40G -e -v \
-  prefix="wc_coarse" \
+  prefix="wc_3phase_coarse" \
   cellsize="$CELL_COARSE" \
   phases="$PHASES" \
   density="$DENSITY" \
@@ -132,7 +132,7 @@ g.region raster=dtm_fine_clip -a
 # 4) FINE RUN (with profile and visualization outputs)
 # --------------------
 r.avaflow.40G -e -v \
-  prefix="wc_fine" \
+  prefix="wc_3phase_fine" \
   cellsize="$CELL_FINE" \
   phases="$PHASES" \
   density="$DENSITY" \
